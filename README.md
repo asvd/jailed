@@ -1,5 +1,5 @@
-Jailed — secured plugins with custom API
-========================================
+Jailed — sandboxed plugins, custom API
+======================================
 
 Jailed is a small JavaScript library for executing an untrusted code
 as a plugin in a sandboxed environment. The key feature of Jailed is
@@ -27,14 +27,14 @@ With Jailed you can:
   calculation times;
 
 - Perform some heavy calculations in a separate thread
-  [DEMO](https://asvd.github.io/jailed/demos/circle/)
+  [[demo](https://asvd.github.io/jailed/demos/circle/)]
 
 - Delegate to a 3rd-party code the precise set of methods to
   harmlessly operate on the part of your application
-  [DEMO](https://asvd.github.io/jailed/demos/banner/)
+  [[demo](https://asvd.github.io/jailed/demos/banner/)]
 
 - Safely execute user-submitted code
-  [DEMO](https://asvd.github.io/jailed/demos/console/)
+  [[demo](https://asvd.github.io/jailed/demos/console/)]
 
 - Export the particular set of methods (in both directions) and call
   them from the opposite site, without a need for messaging, thus
@@ -61,7 +61,7 @@ var plugin = new jailed.Plugin(path, api);
 ###### plugin.js
 
 ```js
-// runs in the worker, cannot access the main application, with except
+// runs in a worker, cannot access the main application, with except
 // for the explicitly exported alert() method
 
 // exported methods are stored in the application.remote object
@@ -84,7 +84,7 @@ previously stored upon the initial method call.
 
 For the web-browser environment — download the
 [distribution](https://github.com/asvd/jailed/releases/download/v0.1.0/jailed-0.1.0.tar.gz)
-(14 kb), unpack it and load the `jailed.js` in a preferrable way. This
+[14 kb], unpack it and load the `jailed.js` in a preferrable way. That
 is an UMD module, so it may simply be loaded as a plain JavaScript
 file using the `<script>` tag:
 
@@ -106,7 +106,7 @@ var jailed = require('jailed');
 
 Optionally you may load the script from the
 [distribution](https://github.com/asvd/jailed/releases/download/v0.1.0/jailed-0.1.0.tar.gz)
-(14 kb):
+[14 kb]:
 
 ```js
 var jailed = require('path/to/jailed.js');
@@ -166,8 +166,8 @@ application.remote.alert('hello from the plugin');
 ```
 
 
-Creating a plugin from a string with a source code is very similar, it
-is performed using `jailed.DynamicPlugin` constructor:
+Creating a plugin from a string with a source code is very similar,
+this is performed using `jailed.DynamicPlugin` constructor:
 
 
 ###### application.js
