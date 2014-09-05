@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>Secured banner example</title>
+    <script type="text/javascript" src="../../../lib/jailed.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class=centered>
+      <div class=rel>
+
+        <h3>banner</h3>
+        <a href=# id=link>
+          <div class=image id=image></div>
+        </a>
+
+        <div class='button first' id=connect>Connect</div>
+        <div class='button second' id=disconnect>Disconnect</div>
+        <div class=text>
+          The squared area above is a place for a partner's
+          advertising banner managed by a "3rd party code" loaded as a
+          secure Plugin created with
+          the <a href="https://github.com/asvd/jailed">Jailed</a>
+          library. The Plugin runs in a Worker and cannot access the
+          main document, with except for the two methods explicitily
+          exported by the application: for changing the url the banner
+          is pointing to, and for changing the banner image. Even if
+          the Plugin performs an attempt to set too big image, it will
+          be cropped by the application. The Plugin Worker is fully
+          controlled by the application and may be connected or
+          disconnected anytime (operated with the two buttons in this
+          demo).
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="application.js"></script>
+  </body>
+</html>
+

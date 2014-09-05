@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>JS console demo</title>
+    <script type="text/javascript" src="../../../lib/jailed.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class=centered>
+      <div class=rel>
+        <div class=inv>❱</div>
+
+        <div class=border id=border>
+          <div class=terminalWrap id=terminalWrap>
+            <div class=rel>
+              <div class=terminal id=terminal></div>
+            </div>
+          </div>
+          <div class=indicator id=indicator></div>
+          <div class=command id=command>
+            <input type=text class=commandText id=line></input>
+          </div>
+          <div class=shadow></div>
+        </div>
+
+        <div class=text>
+          <h3>console</h3>
+
+          User-submitted code is evaluated in a&nbsp;Plugin created
+          with the <a href="https://github.com/asvd/jailed">Jailed</a>
+          library. The code is sandboxed within a Worker scope in
+          order to prevent accessing the main application. The Worker
+          is executied in a separate thread and does not slowdown the
+          application in case of heavy loads. Too long evaluation
+          times and infinite loops are prevented with a timeout. To
+          reproduce, execute something
+          like <span class=code>while(true);</span> and see what
+          happens.
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="application.js"></script>
+  </body>
+</html>
+

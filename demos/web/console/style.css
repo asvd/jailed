@@ -1,0 +1,211 @@
+
+body {
+    background-color: #112233;
+}
+
+.rel {
+    position: relative;
+    padding: 0px;
+}
+
+.centered {
+    display: block;
+    width: 900px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
+
+.border {
+    position: absolute;
+    left: 16px;
+    top: 40px;
+    width: 500px;
+    height: 275px;
+    background-color: #051627;
+    background-image: url('bg.png');
+    border: 1px solid #334455;
+    color: #aabbcc;
+    font-family: monospace;
+    transition: border .3s;
+}
+
+.border:hover {
+    transition: box-shadow .3s, border .3s;
+    box-shadow: inset 0px 0px 15px 0px rgba(0, 0, 0, .1);
+}
+
+.border:active {
+    transition: border 0s;
+    border: 1px solid #445566;
+}
+
+.text {
+    position: absolute;
+    left: 545px;
+    top: 25px;
+    width: 300px;
+    height: 400px;
+    color: #aabbcc;
+    font-family: sans;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: default;
+}
+
+.text h3 {
+    font-variant: small-caps;
+}
+
+a {
+    color: #48D7E9;
+    text-shadow: 0px 0px 3px #133153;
+}
+
+a:hover {
+    color: #72EDFD;
+    text-shadow: 0px 0px 8px #3F638B;
+}
+
+.code {
+    font: 10pt Bitstream Vera Sans Mono, monospace;
+    color: #7EC3DD;
+    text-shadow: 0px 0px 5px rgba(145, 194, 221, 0.26);
+}
+
+.terminalWrap {
+    left: 0px;
+    top: 0px;
+    width: 500px;
+    height: 253px;
+    padding: 0px;
+    overflow: hidden;
+    font-family: mono;
+    font-size: 14px;
+}
+
+.shadow {
+    position: absolute;
+    left: 0px;
+    top:0px;
+    width: 500px;
+    height: 50px;
+    background: linear-gradient(
+        to bottom,
+        rgba(2,19,35,.8) 0%,
+        rgba(2,19,35,0) 100%
+    );
+
+}
+
+.indicator {
+    position: absolute;
+    left: 0px;
+    top: 253px;
+    width: 500px;
+    height: 2px;
+    padding-top: 6px;
+    background-color: #152637;
+    padding: 0px;
+}
+
+
+
+.inv {
+    position: absolute;
+    left: 0px;
+    top:295px;
+    color: #556677;
+    font-family: monospace;
+    font-size:18px;
+    cursor: default;
+}
+
+.command {
+    position: absolute;
+    left: 0px;
+    top: 255px;
+    width: 500px;
+    height: 20px;
+    padding: 0px;
+    overflow: hidden;
+    font-family: monospace;
+}
+
+.commandTextAnimated {
+    position: absolute;
+    left: 2px;
+    top: 0px;
+    width: 497px;
+    height: 20px;
+    padding: 0px;
+    color: #aabbcc;
+    text-shadow: 0px 0px 4px rgba(160, 196, 228, 0.1);
+    font-family: mono;
+    font-size: 14px;
+    transition: top .15s, opacity .1s;
+    margin: 2px 0px 0px 0px;
+}
+
+.commandText {
+    position: absolute;
+    left: 2px;
+    top: 0px;
+    width: 497px;
+    height: 20px;
+    padding: 0px;
+    color: #aabbcc;
+    text-shadow: 0px 0px 4px rgba(160, 196, 228, 0.1);
+    font-family: mono;
+    font-size: 14px;
+    margin: 0px;
+}
+
+
+.command input {
+    position: absolute;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    outline: none;
+}
+
+.terminal {
+    position: absolute;
+    top: 253px;
+    left: 0px;
+    width : 495px;
+    padding-left: 2px;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+}
+
+.separator {
+    width: 497px;
+    height: 0px;
+    float: left;
+}
+
+.input {
+    float: left;
+    overflow: hidden;
+    max-width: 496px;
+    color: #aabbcc;
+}
+
+.output {
+    padding-left: 10px;
+    float: right;
+    color: #627A93;
+}
+
+.message {
+    padding-left: 10px;
+    float: right;
+    color: #355D87;
+}
+

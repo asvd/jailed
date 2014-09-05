@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Heavy calculations example</title>
+    <script type="text/javascript" src="../../../lib/jailed.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <div class=centered>
+      <div class=rel>
+        <h3>the dangling circle</h3>
+
+        <div class=circle id=circle></div>
+
+        <div class=left>
+            <div class=button id=btnLocal>Calculate locally</div>
+            <div class=output id=outputLocal></div>
+            <div class=text>
+              Starts a heavy calculation simply as a function call
+              within the main page. This will interrupt the animation
+              (which is performed with JavaScript) until the
+              calculation is completed, the page will hang up for
+              some time.
+            </div>
+        </div>
+
+        <div class=separator></div>
+
+        <div class=right>
+            <div class=button id=btnPlugin>Calculate in the plugin</div>
+            <div class=output id=outputPlugin></div>
+            <div class=text>
+              Performs exactly the same calculation, but uses a method
+              provided by the Plugin created with
+              the <a href="https://github.com/asvd/jailed">Jailed</a>
+              library instead. The Plugin runs in a separate thread of
+              a Worker, so the page will not freeze during the
+              calculation.
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="application.js"></script>
+  </body>
+</html>
+

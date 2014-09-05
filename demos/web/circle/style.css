@@ -1,0 +1,145 @@
+body {
+    background-color: #112233;
+}
+
+
+.rel {
+    position: relative;
+    padding: 0px;
+}
+
+
+h3 {
+    position: absolute;
+    width: 800px;
+    height: 100px;
+    left: 10px;
+    top: 20px;
+    text-align: center;
+    color: #aabbcc;
+    font-family: sans;
+    font-variant: small-caps;
+#    font-size: 20px;
+}
+
+.centered {
+    width: 800px;
+    padding: 0px;
+    height: 500px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.circle {
+    position: absolute;
+    width : 30px;
+    height : 30px;
+    top : 110px;
+    left: 385px;
+    border: 1px solid #556677;
+    border-radius: 20px;
+}
+
+.output {
+    position: absolute;
+    font-family: mono;
+    font-size: 10px;
+    color: #667788;
+    top: 200px;
+    width : 200px;
+}
+
+.left .output {
+    left: 150px;
+    text-align: right;
+}
+
+.right .output {
+    left: 450px;
+    text-align: left;
+}
+
+
+.separator {
+    position: absolute;
+    background-color:#223344;
+    width: 1px;
+    height: 250px;
+    top: 200px;
+    left: 400;
+}
+
+.button {
+    position: absolute;
+    padding-top: 6px;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    background-color: #112233;
+    color: #aabbcc;
+    cursor: pointer;
+    font-family: sans;
+    border: 1px solid #556677;
+    border-radius: 2px;
+    top : 220px;
+}
+
+.button:hover {
+    background-color: #223344;
+    color: #ddeeff;
+}
+
+.button:active {
+    background-color: #334455;
+    box-shadow: 0px 0px 3px 0px #556677;
+    border: 1px solid #99AABB;
+    cursor: default;
+    color: #ccddee;
+}
+
+
+.left .button {
+    left: 150px;
+}
+
+.right .button {
+    left: 450px;
+}
+
+.text {
+    position: absolute;
+    color: #aabbcc;
+    font-family: sans;
+    font-size: 14px;
+    line-height: 22px;
+    width: 250px;
+    height: 300px;
+    top: 270px;
+    cursor: default;
+}
+
+.left .text {
+    left: 100px;
+    text-align: right;
+}
+
+.right .text{
+    left: 450px;
+}
+
+
+.text h3 {
+}
+
+a {
+    color: #48D7E9;
+    text-shadow: 0px 0px 3px #133153;
+}
+
+a:hover {
+    color: #72EDFD;
+    text-shadow: 0px 0px 8px #3F638B;
+}
+
+
