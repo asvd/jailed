@@ -87,8 +87,8 @@ invocation.
 ### Installation
 
 For the web-browser environment — download the
-[distribution](https://github.com/asvd/jailed/releases/download/v0.1.0/jailed-0.1.0.tar.gz)
-*14 kb*, unpack it and load the `jailed.js` in a preferrable way. That
+[distribution](https://github.com/asvd/jailed/releases/download/v0.1.1/jailed-0.1.1.tar.gz)
+*8 kb*, unpack it and load the `jailed.js` in a preferrable way. That
 is an UMD module, so it may simply be loaded as a plain JavaScript
 file using the `<script>` tag:
 
@@ -109,8 +109,8 @@ var jailed = require('jailed');
 ```
 
 Optionally you may load the script from the
-[distribution](https://github.com/asvd/jailed/releases/download/v0.1.0/jailed-0.1.0.tar.gz)
-*14 kb*:
+[distribution](https://github.com/asvd/jailed/releases/download/v0.1.1/jailed-0.1.1.tar.gz)
+*8 kb*:
 
 ```js
 var jailed = require('path/to/jailed.js');
