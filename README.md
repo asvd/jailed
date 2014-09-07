@@ -81,9 +81,9 @@ message is sent, which leads to the actual function invocation on the
 other site. If the executed function then issues a callback, the
 responce message will be sent back and handled by the opposite site,
 which will in turn execute the actual callback previously stored upon
-the initial wrapper method invocation. A callback behaves exactly as
-an exported function, particularly it may invoke a newer callback in
-reply.
+the initial wrapper method invocation. A callback is in fact a
+short-term exported function and behaves in the same way (particularly
+it may invoke a newer callback in reply).
 
 
 ### Installation
