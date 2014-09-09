@@ -62,9 +62,8 @@ body {
     position: absolute;
     width: 900;
     height: 50px;
-    top: 370;
-    left: 0px;
-    text-align: center;
+    top: 350;
+    left: 20px;
     font-size: 11px;
 }
 
