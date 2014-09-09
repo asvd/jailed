@@ -1,6 +1,11 @@
 
 body {
     background-color: #112233;
+    color: #aabbcc;
+    font-family: sans;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: default;
 }
 
 .rel {
@@ -47,16 +52,22 @@ body {
     top: 25px;
     width: 300px;
     height: 400px;
-    color: #aabbcc;
-    font-family: sans;
-    font-size: 14px;
-    line-height: 21px;
-    cursor: default;
 }
 
 .text h3 {
     font-variant: small-caps;
 }
+
+.links {
+    position: absolute;
+    width: 900;
+    height: 50px;
+    top: 370;
+    left: 0px;
+    text-align: center;
+    font-size: 11px;
+}
+
 
 a {
     color: #48D7E9;

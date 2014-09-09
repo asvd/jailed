@@ -1,5 +1,10 @@
 body {
     background-color: #112233;
+    color: #aabbcc;
+    font-family: sans;
+    font-size: 14px;
+    line-height: 22px;
+    cursor: default;
 }
 
 
@@ -70,6 +75,15 @@ h3 {
     left: 400;
 }
 
+.links {
+    position: absolute;
+    width: 800px;
+    height: 50px;
+    top: 500px;
+    text-align: center;
+    font-size: 11px;
+}
+
 .button {
     position: absolute;
     padding-top: 6px;
@@ -109,14 +123,9 @@ h3 {
 
 .text {
     position: absolute;
-    color: #aabbcc;
-    font-family: sans;
-    font-size: 14px;
-    line-height: 22px;
     width: 250px;
     height: 300px;
     top: 270px;
-    cursor: default;
 }
 
 .left .text {

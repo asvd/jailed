@@ -1,5 +1,10 @@
 body {
     background-color: #112233;
+    color: #aabbcc;
+    font-family: sans;
+    font-size: 14px;
+    line-height: 24px;
+    cursor: default;
 }
 
 
@@ -85,18 +90,23 @@ h3 {
 .text {
     position: absolute;
 #    text-indent: 2px;
-    color: #aabbcc;
-    font-family: sans;
-    font-size: 14px;
     text-align: justify;
-    line-height: 24px;
     width: 412px;
     height: 400px;
     top: 300px;
     left: 20px;
-    cursor: default;
 }
 
+
+.links {
+    position: absolute;
+    width: 412;
+    height: 50px;
+    top: 600px;
+    left: 20px;
+    text-align: center;
+    font-size: 11px;
+}
 
 a {
     color: #48D7E9;

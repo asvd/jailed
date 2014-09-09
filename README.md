@@ -1,12 +1,12 @@
 Jailed — safe yet flexible sandbox
 ==================================
 
-Jailed is a small JavaScript library for executing an untrusted code
-as a *plugin*, a special instance running in a sandboxed
-environment. The key feature of Jailed is an opportunity to export a
-set of methods into the sandbox — thus defining a precise set of
-plugin priviliges. Anything not exported explicitly cannot be
-accessed: a plugin runs in a
+Jailed is a small JavaScript library for executing untrusted code as a
+*plugin*, a special instance running in a sandboxed environment. The
+key feature of Jailed is an opportunity to export a set of methods
+into the sandbox — thus defining a precise set of plugin
+priviliges. Anything not exported explicitly cannot be accessed: a
+plugin runs in a
 [worker](https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers)
 (in case of web-browser environment), or as a restricted subprocess
 (in Node.js).
@@ -14,18 +14,18 @@ accessed: a plugin runs in a
 
 With Jailed you can:
 
-- Setup a safe environment for executing an untrusted code, without a
+- Setup a safe environment for executing untrusted code, without a
   need to create a worker / subprocess manually;
 
-- Do that in an isomorphic way: the syntax is the same for Node.js and
-  web-browser, the code works unchanged;
+- Do that in an isomorphic way: the syntax is same both for Node.js
+  and web-browser, the code works unchanged;
 
-- Execute an untrusted code from a string or from a file;
+- Execute untrusted code from a string or from a file;
 
 - Initiate and interrupt the execution anytime;
 
-- Control the execution of a code against a hangup or too long
-  calculation times;
+- Control the execution against a hangup or too long calculation
+  times;
 
 - Perform heavy calculations in a separate thread
   *[Demo](https://asvd.github.io/jailed/demos/circle/)*
@@ -45,8 +45,6 @@ With Jailed you can:
 For instance:
 
 
-###### application.js:
-
 ```js
 var path = 'http://path.to/the/plugin.js';
 
@@ -59,7 +57,7 @@ var plugin = new jailed.Plugin(path, api);
 ```
 
 
-###### plugin.js:
+*plugin.js:*
 
 ```js
 // runs in a worker, cannot access the main application, with except
@@ -82,8 +80,8 @@ other site. If the executed function then issues a callback, the
 responce message will be sent back and handled by the opposite site,
 which will in turn execute the actual callback previously stored upon
 the initial wrapper method invocation. A callback is in fact a
-short-term exported function and behaves in the same way (particularly
-it may invoke a newer callback in reply).
+short-term exported function and behaves in the same way, particularly
+it may invoke a newer callback in reply.
 
 
 ### Installation
@@ -91,8 +89,8 @@ it may invoke a newer callback in reply).
 For the web-browser environment — download the
 [distribution](https://github.com/asvd/jailed/releases/download/v0.1.1/jailed-0.1.1.tar.gz)
 *8 kb*, unpack it and load the `jailed.js` in a preferrable way. That
-is an UMD module, so it may simply be loaded as a plain JavaScript
-file using the `<script>` tag:
+is an UMD module, thus for instance it may simply be loaded as a plain
+JavaScript file using the `<script>` tag:
 
 ```html
 <script src="jailed/jailed.js"></script>
@@ -127,8 +125,8 @@ After the module is loaded, the two plugin constructors are available:
 
 The messaging mechanism reused beyond the remote method invocation
 introduces some natural limitations for the exported functions and
-their usage (nevertheless the most common use-cases are still simple
-and straightforward):
+their usage (nevertheless the most common use-cases are still
+straightforward):
 
 - Exported function arguments may only be either simple objects (which
   are then serialized into a JSON-string and sent within a message),
@@ -136,8 +134,8 @@ and straightforward):
   identifiers before sending). Custom object instance may not be used
   as an argument.
 
-- A callback may not be executed several times, it will be removed
-  from the callback storage upon the first invocation.
+- A callback can not be executed several times, it will be destroyed
+  upon the first invocation.
 
 - If several callbacks are provided, only one of them may be called.
 
@@ -149,8 +147,6 @@ A plugin object may be created either from a string containing a
 source code to be executed, or with a path to the script. To load a
 plugin code from a file, create the plugin using `jailed.Plugin`
 constructor and provide the path:
-
-###### application.js:
 
 ```js
 var path = 'http://path.to/some/plugin.js';
@@ -164,7 +160,7 @@ var plugin = new jailed.Plugin(path, api);
 ```
 
 
-###### plugin.js:
+*plugin.js:*
 
 ```js
 application.remote.alert('Hello from the plugin!');
@@ -174,8 +170,6 @@ application.remote.alert('Hello from the plugin!');
 Creating a plugin from a string containing a code is very similar,
 this is performed using `jailed.DynamicPlugin` constructor:
 
-
-###### application.js:
 
 ```js
 var code = "application.remote.alert('Hello from the plugin!');";
@@ -187,6 +181,7 @@ var api = {
 var plugin = new jailed.DynamicPlugin(code, api);
 ```
 
+
 The second `api` argument provided to the `jailed.Plugin` and
 `jailed.DynamicPlugin` constructors is an interface object with a set
 of functions to be exported into the plugin. It is also possible to
@@ -196,8 +191,6 @@ to perform a calculation. In this case the second argument of a plugin
 constructor may be omitted. To export some plugin functions, use
 `application.setInterface()` method in the plugin code:
 
-
-###### application.js:
 
 ```js
 // create a plugin
@@ -218,7 +211,7 @@ var reportResult = function(result) {
 plugin.whenConnected(start);
 ```
 
-###### plugin.js:
+*plugin.js:*
 
 ```js
 // provides the method to square a number
@@ -233,15 +226,50 @@ var api = {
 application.setInterface(api);
 ```
 
+In this example the `whenConnected()` plugin method is used at the
+application site: that method subscribes the given function to the
+plugin connection event, after which the functions exported by the
+plugin become accessible at the `remote` property of a plugin.
 
-After a plugin is connected, the functions exported by the plugin are
-avaialable at the `remote` property of the plugin object. To set up a
-handler for the connection event, use `whenConnected()` method of a
-plugin. It can be used as many times as needed and thus subscribe
-several handlers for a single connection event (for convenience, it is
-also possible to set a connection handler even after the plugin has
-already been connected — in this case the handler is issued
-immediately, yet asynchronously).
+The `whenConnected()` method may be used as many times as needed and
+thus subscribe several handlers for a single connection event. For
+additional convenience, it is also possible to set a connection
+handler even after the plugin has already been connected — in this
+case the handler is issued immediately (yet asynchronously).
+
+When a plugin code is executed, a set of functions exported by the
+application is already prepared. But if one of those functions is
+invoked, it will actually be called on the application site. If in
+this case the code of that function will try to use a function
+exported by the plugin, it may not be prepared yet. To solve this, the
+similar `application.whenConnected()` method is available on the
+plugin site. The method works same as the one of the plugin object:
+the subscribed handler function will be executed after the connection
+is initialized, and a set of functions exported by each site is
+available on the opposite site.
+
+
+Therefore:
+
+- If you need to load a plugin and supply it with a set of exported
+  functions, simply provide those functions into the plugin
+  constructor, and then access those at `applictaion.remote` property
+  on the plugin site — the exported functions are already prepared
+  when the plugin code is exectued.
+
+- If you need to load a plugin and use the functions it provides
+  through exporting, set up a handler using `plugin.whenConnected()`
+  method on the application site. After the event is fired, the
+  functions exported by the plugin are available at its `remote`
+  property of the plugin object;.
+
+- If both application and a plugin use the exported functions of each
+  other, *and* the communication is initiated by the plugin, you will
+  most likely need to use the `application.whenConnected()` method on
+  the plugin site before initiating the communication, in order to
+  make sure that the functions exported by the plugin are already
+  exported to the application.
+
 
 To disconnect a plugin, use the `disconnect()` method: it kills a
 worker / subprocess immediately without any chance for its code to
@@ -260,23 +288,12 @@ provides similar `whenFailed()` and `whenDisconnected()` methods:
 
 - `whenDisconnected()` subscribes a function to the disconnect event,
   which happens if a plugin was disconnected by calling the
-  `disconnect()` method, or a plugin disconnected itself by calling
-  `application.disconnect()`, or if a plugin failed to initialize
-  (along with the failure event mentioned above). After the event is
-  fired, the plugin is not usable anymore.
+  `disconnect()` method, or a plugin has disconnected itself by
+  calling `application.disconnect()`, or if a plugin failed to
+  initialize (along with the failure event mentioned above). After the
+  event is fired, the plugin is not usable anymore.
 
 Just like as for `whenConnected()` method, those two methods may also
 be used several times or even after the event has actually been fired.
-
-When a plugin code is executed, a set of functions exported by the
-application is already prepared. But if one of those functions is
-invoked, it will actually be called on the application site. If in
-this case the code of that function will try to use a function
-exported by the plugin, it may not be prepared yet. To solve this, the
-`application` object on the plugin site also provides the similar
-`whenConnected()` method which works same as the one of the plugin
-object. It allows to initiate the communication only after the
-connection is initialized, and the exported set of functions are
-avaliable on both sites.
 
 
