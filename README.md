@@ -28,14 +28,14 @@ With Jailed you can:
   times;
 
 - Perform heavy calculations in a separate thread
-  *[Demo](https://asvd.github.io/jailed/demos/circle/)*
+  *[Demo](https://asvd.github.io/jailed/demos/web/circle/)*
 
 - Delegate to a 3rd-party code the precise set of methods to
   harmlessly operate on the part of your application
-  *[Demo](https://asvd.github.io/jailed/demos/banner/)*
+  *[Demo](https://asvd.github.io/jailed/demos/web/banner/)*
 
 - Safely execute user-submitted code
-  *[Demo](https://asvd.github.io/jailed/demos/console/)*
+  *[Demo](https://asvd.github.io/jailed/demos/web/console/)*
 
 - Export the particular set of functions (in both directions) and call
   them from the opposite site (without a need for manual messaging)
