@@ -268,7 +268,7 @@ Therefore:
   most likely need to use the `application.whenConnected()` method on
   the plugin site before initiating the communication, in order to
   make sure that the functions exported by the plugin are already
-  exported to the application.
+  available to the application.
 
 
 To disconnect a plugin, use the `disconnect()` method: it kills a
