@@ -146,7 +146,7 @@ a:hover {
 .commandTextAnimated {
     position: absolute;
     left: 2px;
-    top: 0px;
+    top: -2px;
     width: 497px;
     height: 20px;
     padding: 0px;
