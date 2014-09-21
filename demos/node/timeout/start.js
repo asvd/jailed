@@ -67,6 +67,6 @@ var init = function() {
     countdownInterval = setInterval(countdown, 1000);
 }
 
-var plugin = new jailed.Plugin('plugin.js');
+var plugin = new jailed.Plugin(__dirname+'/plugin.js');
 plugin.whenConnected(init);
 
