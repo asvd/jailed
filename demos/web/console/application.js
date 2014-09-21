@@ -161,19 +161,23 @@ var scroll = function() {
 
 
 // will restart the plugin if it does not respond
-var resetTimeout = null;
+var disconnectTimeout = null;
 var startLoading = function() {
-    resetTimeout = setTimeout(reset, 3000);
+    disconnectTimeout = setTimeout(disconnect, 3000);
     el.indicator.offsetHeight;
     el.indicator.style.transition = 'background-color 4s';
     el.indicator.style.backgroundColor = '#839AC2';
 }
 
 var endLoading = function() {
-    clearTimeout(resetTimeout);
+    clearTimeout(disconnectTimeout);
     el.indicator.offsetHeight;
     el.indicator.style.transition = 'background-color .3s';
     el.indicator.style.backgroundColor = '#152637';
+}
+
+var disconnect = function() {
+    plugin.disconnect();
 }
 
 
@@ -209,23 +213,25 @@ var requests;
 
 // (re)initializes the plugin
 var reset = function() {
-    if (plugin) {
-        plugin.disconnect();
-        endLoading();
-
-        while (el.terminal.hasChildNodes()) {
-            el.terminal.removeChild(el.terminal.childNodes[0]);
-        }
-
-        el.terminal.style.transition = 'top 0s';
-        el.terminal.style.top = el.terminalWrap.offsetHeight;
-
-        print('message', 'Well done, you have just ruined everything :-/');
-        print('message', 'The console was restarted');
-    }
-    
     requests = 0;
     plugin = new jailed.Plugin(path+'plugin.js', api);
+    plugin.whenDisconnected(
+        function() {
+            endLoading();
+
+            while (el.terminal.hasChildNodes()) {
+                el.terminal.removeChild(el.terminal.childNodes[0]);
+            }
+
+            el.terminal.style.transition = 'top 0s';
+            el.terminal.style.top = el.terminalWrap.offsetHeight;
+
+            print('message', 'Well done, you have just ruined everything :-/');
+            print('message', 'The console was restarted');
+
+            reset();
+        }
+    );
 }
 
 
