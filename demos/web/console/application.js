@@ -32,7 +32,9 @@ var hist = {
     },
     
     set: function(val) {
-        this._list[this._pos] = val;
+        if (this._pos >= this._list.length-1) {
+            this._list[this._pos] = val;
+        }
     },
 
     next: function() {
@@ -53,7 +55,7 @@ var hist = {
 };
 
 
-// command line keypress handler
+// command line keypress handlers
 el.line.onkeydown = function(e) {
     switch (e.keyCode) {
     case 38: // up arrow
@@ -77,6 +79,16 @@ el.line.onkeydown = function(e) {
             el.line.value = '';
             submit(val);
         }
+        break;
+    }
+}
+
+
+el.line.onkeyup = function(e) {
+    switch (e.keyCode) {
+    case 38: // up arrow
+    case 40: // down arrow
+    case 13: // enter
         break;
 
     default:
