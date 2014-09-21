@@ -39,5 +39,4 @@ Empty logfile created, will be filled with content in 3 seconds
 Writing the old content into the log file along with a new message added
 Logfile updated
 Plugin finished
-
 ```
