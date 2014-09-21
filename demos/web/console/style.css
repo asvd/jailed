@@ -187,11 +187,6 @@ a:hover {
     width : 495px;
     padding-left: 2px;
     cursor: default;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -o-user-select: none;
 }
 
 .separator {

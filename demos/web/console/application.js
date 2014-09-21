@@ -236,7 +236,9 @@ reset();
 el.line.focus();
 
 el.terminalWrap.onclick = function(e) {
-    el.line.focus();
-    e.preventDefault();
+    if (!window.getSelection().toString()) {
+        el.line.focus();
+        e.preventDefault();
+    }  // otherwise text selected
 }
 
