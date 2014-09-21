@@ -4,8 +4,8 @@
  * 
  * A code loaded as a Plugin is provided with a restricted access to
  * the filesystem: it can only create, read, update and delete the
- * particular file (plugin_log.txt). A method for printing a message
- * is additionally exported for the demonstration purposes.
+ * particular file (log.txt). A method for printing a message is
+ * additionally exported for the demonstration purposes.
  */
 
 var jailed = require('../../../lib/jailed.js');
@@ -13,7 +13,7 @@ var fs = require('fs');
 
 
 // building plugin interface
-var log = 'log.txt';
+var log = __dirname + '/log.txt';
 
 // creates the empty log file
 var createLog = function(sCb, fCb) {
@@ -86,6 +86,6 @@ var api = {
 };
 
 
-var plugin = new jailed.Plugin('plugin.js', api);
+var plugin = new jailed.Plugin(__dirname + '/plugin.js', api);
 
 // all other work is performed by the plugin
