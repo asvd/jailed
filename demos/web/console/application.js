@@ -215,8 +215,9 @@ var requests;
 var reset = function() {
     requests = 0;
     plugin = new jailed.Plugin(path+'plugin.js', api);
-    plugin.whenDisconnected(
-        function() {
+    plugin.whenDisconnected( function() {
+        // give some time to handle the last responce
+        setTimeout( function() {
             endLoading();
 
             while (el.terminal.hasChildNodes()) {
@@ -230,8 +231,8 @@ var reset = function() {
             print('message', 'The console was restarted');
 
             reset();
-        }
-    );
+        }, 10);
+    });
 }
 
 
