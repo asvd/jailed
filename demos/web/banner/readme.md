@@ -1,9 +1,9 @@
 # Banner demo
 
-This example demonstrates how a third-party library (`banner.js`) of a
-partner may be used to safely manipulate on the particular piece of
-the application.
+This example demonstrates how a third-party partner's library
+(`banner.js`) may be used to safely manipulate on the part of an
+application.
 
-Launch this demo online:
+Watch this demo online:
 
 [https://asvd.github.io/jailed/demos/web/banner/](https://asvd.github.io/jailed/demos/web/banner/)
