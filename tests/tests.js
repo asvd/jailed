@@ -33,7 +33,6 @@ var tests = {
         lighttest.done();
     },
 
-                    
     'Static plugin':
     function() {
         var api = {
@@ -48,7 +47,6 @@ var tests = {
         var plugin = new jailed.Plugin(path, api);
         plugin.whenFailed(whenFailed);
     },
-
 
 
     'Dynamic plugin':
@@ -212,7 +210,6 @@ var tests = {
     },
                     
                     
-
     'Using the plugin during a period':
     function() {
         var path = currentPath + 'stage07/plugin7.js';
@@ -308,6 +305,7 @@ var tests = {
     },
                     
                     
+
 
     'Two plugins with the same source but different interface':
     function() {
@@ -583,6 +581,7 @@ var tests = {
 
     
 
+
     
     'Remote plugin':
     function() {
@@ -597,6 +596,7 @@ var tests = {
                 cb();
             }),
             done: lighttest.protect(function() {
+                plugin.disconnect();
                 lighttest.done();
             })
         }
@@ -605,7 +605,9 @@ var tests = {
         plugin.whenFailed(whenFailed);
     },
 
-                    
+
+    
+    
     'Plugin with infinite loop':
     function() {
         var pathBad = currentPath + 'stage15/plugin15_bad.js';
@@ -753,7 +755,8 @@ var tests = {
 
     'Broken dynamic plugin':
     function() {
-        var code = 'auaa } u((uu&';
+        var code = 'u';
+//        var code = 'auaa } u((uu&';
 
         var plugin = new jailed.DynamicPlugin(code);
 
@@ -795,7 +798,7 @@ var tests = {
         plugin.whenFailed(fail);
     },
 
-                    
+
 
     'Broken remote plugin':
     function() {
@@ -843,6 +846,7 @@ var tests = {
 
                     
                     
+
     'Nonexisting plugin':
     function() {
         var path = currentPath + 'no_such_path.js';
@@ -887,7 +891,6 @@ var tests = {
     },
                     
 
-
     'Nonexisting remote plugin':
     function() {
         var path = 'http://asvd.github.io/no_such_path.js';
@@ -931,7 +934,8 @@ var tests = {
         plugin.whenFailed(fail);
     },
 
-                    
+    
+    
     'Broken plugin method':
     function() {
         var step1 = lighttest.protect(
@@ -1537,6 +1541,7 @@ var tests = {
     },
     
     
+
     'Delayed event subscription in the application':
     function() {
         var stage1 = lighttest.protect(
