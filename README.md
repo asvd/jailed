@@ -104,8 +104,7 @@ script);
   application site.
 
 
-##### For the web-browser Jailed launches the code in the following
-      way:
+##### Under web-browser, the plugin is launched in the following way:
 
 - creates a [sandboxed
 iframe](http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/),
