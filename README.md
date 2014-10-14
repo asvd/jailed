@@ -117,15 +117,15 @@ application origin;
 - finally the code string / script filename is transfered as a message
   into the worker in order to execute the code inside it
 
-*Note: when loading the Jailed library from the local file (so that
- its path starts with `file://`, the `"allow-same-origin"` permission
- is added for the iframe sandbox attribute. Local installations are
- mostly used for testing, and without that permission it would not be
- possible to load the plugin code from a local file. On the other hand
- that means that the code jailed in a plugin has an access to the
- local filesystem, and to some origin-shared things, like IndexedDB
- (though it is still jailed within a Worker and cannot access the main
- application page).*
+*Note: when loading the Jailed library from the local file in a
+ web-browser (so that its path starts with `file://`, the
+ `"allow-same-origin"` permission is added for the iframe sandbox
+ attribute. Local installations are mostly used for testing, and
+ without that permission it would not be possible to load the plugin
+ code from a local file. On the other hand that means that the code
+ jailed in a plugin has an access to the local filesystem, and to some
+ origin-shared things, like IndexedDB (though it is still jailed
+ within a Worker and cannot access the main application page).*
 
 
 
