@@ -6,7 +6,7 @@ Jailed is a small JavaScript library for executing untrusted code as a
 key feature of Jailed is an opportunity to export a set of methods
 into the sandbox — thus defining a precise set of plugin
 priviliges. Anything not exported explicitly cannot be accessed: a
-plugin runs inside a Web-Worker launched in a sandboxed-frame (in case
+plugin runs inside a Web-Worker launched in a sandboxed frame (in case
 of web-browser environment), or as a restricted subprocess (in
 Node.js).
 
@@ -81,6 +81,53 @@ opposite site, which will in turn execute the actual callback
 previously stored upon the initial wrapper method invocation. A
 callback is in fact a short-term exported function and behaves in the
 same way, particularly it may invoke a newer callback in reply.
+
+
+### Security
+
+##### For Node.js the Jailed library does the following:
+
+- creates a subprocess (running the
+[https://github.com/asvd/jailed/blob/master/lib/_pluginNode.js](_pluginNode.js)
+script);
+
+- (down)loads the file containing an untrusted code as a string (or
+  simply takes the string containing the code, in case of
+  `DynamicPlugin`);
+
+- appends `"use strict";` at the head of that code (in order to
+  prevent breaking the sandbox using `arguments.callee.caller`);
+
+- finally executes the code using `vm.runInNewContext()` method, where
+  the provided sandbox only exposes some basic methods like
+  `setTimeout()`, and the `application` object for messaging with the
+  application site.
+
+
+##### For the web-browser Jailed launches the code in the following
+      way:
+
+- creates a
+[http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/](sandboxed
+iframe), where the sandbox attribute is only set to `"allow-scripts"`
+which prevents the framed content from accessing anything of the main
+application origin;
+
+- then a Web-Worker is created inside that farme;
+
+- finally the code string / script filename is transfered as a message
+  into the worker in order to execute the code inside it
+
+*Note: when loading the Jailed library from the local file (so that
+ its path starts with `file://`, the `"allow-same-origin"` permission
+ is added for the iframe sandbox attribute. Local installations are
+ mostly used for testing, and without that permission it would not be
+ possible to load the plugin code from a local file. On the other hand
+ that means that the code jailed in a plugin has an access to the
+ local filesystem, and to some origin-shared things, like IndexedDB
+ (though it is still jailed within a Worker and cannot access the main
+ application page).*
+
 
 
 ### Installation
