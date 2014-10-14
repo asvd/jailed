@@ -125,7 +125,8 @@ application origin;
  code from a local file. On the other hand that means that the code
  jailed in a plugin has an access to the local filesystem, and to some
  origin-shared things, like IndexedDB (though it is still jailed
- within a Worker and cannot access the main application page).*
+ within a Worker and cannot access the main application page). If you
+ need to safely use Jailed on a local machine, run it using Node.js.*
 
 
 
