@@ -118,7 +118,7 @@ application origin;
   into the worker in order to execute the code inside it
 
 *Note: when loading the Jailed library from the local file in a
- web-browser (so that its path starts with `file://`, the
+ web-browser (so that its path starts with `file://`), the
  `"allow-same-origin"` permission is added for the iframe sandbox
  attribute. Local installations are mostly used for testing, and
  without that permission it would not be possible to load the plugin
