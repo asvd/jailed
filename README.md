@@ -88,7 +88,7 @@ same way, particularly it may invoke a newer callback in reply.
 ##### For Node.js the Jailed library does the following:
 
 - creates a subprocess (running the
-[https://github.com/asvd/jailed/blob/master/lib/_pluginNode.js](_pluginNode.js)
+[_pluginNode.js](https://github.com/asvd/jailed/blob/master/lib/_pluginNode.js)
 script);
 
 - (down)loads the file containing an untrusted code as a string (or
@@ -107,10 +107,10 @@ script);
 ##### For the web-browser Jailed launches the code in the following
       way:
 
-- creates a
-[http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/](sandboxed
-iframe), where the sandbox attribute is only set to `"allow-scripts"`
-which prevents the framed content from accessing anything of the main
+- creates a [sandboxed
+iframe](http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/),
+where the sandbox attribute is only set to `"allow-scripts"` which
+prevents the framed content from accessing anything of the main
 application origin;
 
 - then a Web-Worker is created inside that farme;
