@@ -87,9 +87,9 @@ same way, particularly it may invoke a newer callback in reply.
 
 ##### For Node.js the Jailed library does the following:
 
-- creates a subprocess (running the
+- creates a subprocess (launches the
 [_pluginNode.js](https://github.com/asvd/jailed/blob/master/lib/_pluginNode.js)
-script);
+script in that process);
 
 - (down)loads the file containing an untrusted code as a string (or
   simply takes the string containing the code, in case of
@@ -174,10 +174,9 @@ their usage (nevertheless the most common use-cases are still
 straightforward):
 
 - Exported function arguments may only be either simple objects (which
-  are then serialized into a JSON-string and sent within a message),
-  or callbacks (which are preserved and replaced with special
-  identifiers before sending). Custom object instance may not be used
-  as an argument.
+  are then serialized and sent within a message), or callbacks (which
+  are preserved and replaced with special identifiers before
+  sending). Custom object instance may not be used as an argument.
 
 - A callback can not be executed several times, it will be destroyed
   upon the first invocation.
