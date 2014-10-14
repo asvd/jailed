@@ -95,7 +95,7 @@ script in that process);
   simply takes the string containing the code, in case of
   `DynamicPlugin`);
 
-- appends `"use strict";` at the head of that code (in order to
+- appends `"use strict";` to the head of that code (in order to
   prevent breaking the sandbox using `arguments.callee.caller`);
 
 - finally executes the code using `vm.runInNewContext()` method, where
