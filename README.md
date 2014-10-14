@@ -6,10 +6,9 @@ Jailed is a small JavaScript library for executing untrusted code as a
 key feature of Jailed is an opportunity to export a set of methods
 into the sandbox — thus defining a precise set of plugin
 priviliges. Anything not exported explicitly cannot be accessed: a
-plugin runs in a
-[worker](https://developer.mozilla.org/en-US/docs/Web/Guide/Performance/Using_web_workers)
-(in case of web-browser environment), or as a restricted subprocess
-(in Node.js).
+plugin runs inside a Web-Worker launched in a sandboxed-frame (in case
+of web-browser environment), or as a restricted subprocess (in
+Node.js).
 
 
 With Jailed you can:
@@ -70,18 +69,18 @@ application.remote.alert('Hello from the plugin!');
 *(exporting the `alert()` method is not that good idea actually)*
 
 Under the hood, an application may only communicate to a plugin
-(worker / jailed subprocess) through a messaging mechanism, which is
-reused by Jailed in order to simulate the exporting of particular
-functions. Each exported function is duplicated on the opposite site
-with a special wrapper method with the same name. Upon the wrapper
-method is called, arguments are serialized, and the corresponding
-message is sent, which leads to the actual function invocation on the
-other site. If the executed function then issues a callback, the
-responce message will be sent back and handled by the opposite site,
-which will in turn execute the actual callback previously stored upon
-the initial wrapper method invocation. A callback is in fact a
-short-term exported function and behaves in the same way, particularly
-it may invoke a newer callback in reply.
+(sandboxed worker / jailed subprocess) through a messaging mechanism,
+which is reused by Jailed in order to simulate the exporting of
+particular functions. Each exported function is duplicated on the
+opposite site with a special wrapper method with the same name. Upon
+the wrapper method is called, arguments are serialized, and the
+corresponding message is sent, which leads to the actual function
+invocation on the other site. If the executed function then issues a
+callback, the responce message will be sent back and handled by the
+opposite site, which will in turn execute the actual callback
+previously stored upon the initial wrapper method invocation. A
+callback is in fact a short-term exported function and behaves in the
+same way, particularly it may invoke a newer callback in reply.
 
 
 ### Installation
