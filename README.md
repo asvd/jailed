@@ -1,20 +1,27 @@
 Jailed — safe yet flexible sandbox
 ==================================
 
-Jailed is a small JavaScript library for executing untrusted code as a
-*plugin*, a special instance running in a sandboxed environment. The
-key feature of Jailed is an opportunity to export a set of methods
-into the sandbox — thus defining a precise set of plugin
-priviliges. Anything not exported explicitly cannot be accessed: a
-plugin runs inside a Web-Worker launched in a sandboxed frame (in case
-of web-browser environment), or as a restricted subprocess (in
-Node.js).
-
-
 With Jailed you can:
 
+- Put an untrusted code into a secure and controlled sandbox so that
+  it cannot bring down the main application;
+
+- Export a precise set of functions into the sandbox, so that the
+  untrusted code may perform some actions on the main application by
+  simply calling those functions (without a need for messaging), but
+  strictly within the set of privilliges explicitly defined by what
+  exactly was exported.
+
+Jailed is a small JavaScript library which loads and executes an
+untrusted code as a *plugin*, a special instance running inside a
+Web-Worker launched in a sandboxed frame (in case of web-browser
+environment), or as a restricted subprocess (in Node.js).
+
+
+Jailed can be used for:
+
 - Setup a safe environment for executing untrusted code, without a
-  need to create a worker / subprocess manually;
+  need to create a sandboxed worker / subprocess manually;
 
 - Do that in an isomorphic way: the syntax is same both for Node.js
   and web-browser, the code works unchanged;
