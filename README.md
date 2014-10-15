@@ -101,8 +101,8 @@ This is how the sandbox is built:
 - A Node.js subprocess is created by the Jailed library;
 
 - the subprocess (down)loads the file containing an untrusted code as
-  a string (or, in case of `DynamicPlugin`, uses a string containing
-  the code)
+  a string (or, in case of `DynamicPlugin`, simply uses the provided
+  string with code)
 
 - then `"use strict";` is appended to the head of that code (in order
   to prevent breaking the sandbox using `arguments.callee.caller`);
