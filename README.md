@@ -2,7 +2,9 @@ Jailed — safe yet flexible sandbox
 ==================================
 
 Jailed is a small JavaScript library for running untrusted code in a
-sandbox. With Jailed you can:
+sandbox.
+
+With Jailed you can:
 
 - Load an untrusted code into a secure and controlled sandbox so that
   it cannot bring down the main application;
