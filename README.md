@@ -126,11 +126,11 @@ main application origin);
 - finaly the code is loaded by the worker and executed.
 
 *Note: when Jailed library is loaded from the local source (its path
- starts with `file://`), the the `"allow-same-origin"` permission is
- added to the `sandbox` attribute of the iframe. Local installations
- are mostly used for testing, and without that permission it would not
- be possible to load the plugin code from a local file. This means
- that the code has access to the local filesystem, and to some
+ starts with `file://`), the `"allow-same-origin"` permission is added
+ to the `sandbox` attribute of the iframe. Local installations are
+ mostly used for testing, and without that permission it would not be
+ possible to load the plugin code from a local file. This means that
+ the code has access to the local filesystem, and to some
  origin-shared things like IndexedDB (though the main application page
  is still not accessible from the worker). Therefore if you need to
  safely execute untrusted code on a local system, reuse the Jailed
