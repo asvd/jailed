@@ -198,8 +198,8 @@ straightforward):
 
 *In Node.js the
  [send()](http://nodejs.org/api/child_process.html#child_process_child_send_message_sendhandle)
- of a child process is used for transfering messages. That method
- serializes an object into a JSON-string. In a web-browser
+ methd of a child process is used for transfering messages. That
+ method serializes an object into a JSON-string. In a web-browser
  environment, the
  [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage)
  method is used for messaging, which implements [the structured clone
