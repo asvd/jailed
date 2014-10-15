@@ -200,14 +200,14 @@ straightforward):
  [send()](http://nodejs.org/api/child_process.html#child_process_child_send_message_sendhandle)
  method of a child process object is used for transfering messages,
  which serializes an object into a JSON-string. In a web-browser
- environment, the
+ environment, the messages are transfered via
  [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage)
- method is used. It implements [the structured clone
+ method, which implements [the structured clone
  algorithm](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/The_structured_clone_algorithm)
- for the message data serialization, which is more capable than JSON
- (for instance, in a web-browser you may send a RegExp object, which
- is not possible in Node.js). [More details about structured clone
- algorithm compared to
+ for the serialization. That algorithm is more capable than JSON (for
+ instance, in a web-browser you may send a RegExp object, which is not
+ possible in Node.js). [More details about structured clone algorithm
+ and its comparsion to
  JSON](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/The_structured_clone_algorithm).*
 
 A plugin object may be created either from a string containing a
