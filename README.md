@@ -198,17 +198,16 @@ straightforward):
 
 *In Node.js the
  [send()](http://nodejs.org/api/child_process.html#child_process_child_send_message_sendhandle)
- methd of a child process is used for transfering messages. That
- method serializes an object into a JSON-string. In a web-browser
+ methd of a child process object is used for transfering messages,
+ which serializes an object into a JSON-string. In a web-browser
  environment, the
  [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage)
- method is used for messaging, which implements [the structured clone
+ method is used. It implements [the structured clone
  algorithm](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/The_structured_clone_algorithm)
- for serialization. This way is more permissive comparing to JSON in
- sence of what can be transfered within a message (for instance, that
- means that in a web-browser you may send a RegExp object, which is
- not possible with JSON-serialization used in Node.js). [More details
- about structured clone algorithm compared to
+ for the message data serialization, which is more capable than JSON
+ (for instance, in a web-browser you may send a RegExp object, which
+ is not possible in Node.js). [More details about structured clone
+ algorithm compared to
  JSON](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/The_structured_clone_algorithm).*
 
 A plugin object may be created either from a string containing a
