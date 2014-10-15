@@ -1,22 +1,21 @@
 Jailed — safe yet flexible sandbox
 ==================================
 
-With Jailed you can:
+Jailed is a small JavaScript library for running untrusted code in a
+sandbox. With Jailed you can:
 
-- Put an untrusted code into a secure and controlled sandbox so that
+- Load an untrusted code into a secure and controlled sandbox so that
   it cannot bring down the main application;
 
 - Export a precise set of functions into the sandbox, so that the
-  untrusted code may perform some actions on the main application by
-  simply calling those functions (without a need for messaging), but
-  strictly within the set of privilliges explicitly defined by what
-  exactly was exported.
+  untrusted code may perform certain actions to the main application
+  simply by calling those functions (without a need for messaging),
+  but strictly within the set of privilliges explicitly defined by
+  what was exported.
 
-Jailed is a small JavaScript library which loads and executes an
-untrusted code as a *plugin*, a special instance running inside a
-Web-Worker launched in a sandboxed frame (in case of web-browser
+The code is executed as a *plugin*, a special instance running in a
+Web-Worker inside a sandboxed frame (in case of web-browser
 environment), or as a restricted subprocess (in Node.js).
-
 
 Jailed can be used for:
 
@@ -26,7 +25,7 @@ Jailed can be used for:
 - Do that in an isomorphic way: the syntax is same both for Node.js
   and web-browser, the code works unchanged;
 
-- Execute untrusted code from a string or from a file;
+- Execute a code from a string or from a file;
 
 - Initiate and interrupt the execution anytime;
 
@@ -36,16 +35,16 @@ Jailed can be used for:
 - Perform heavy calculations in a separate thread
   *[Demo](https://asvd.github.io/jailed/demos/web/circle/)*
 
-- Delegate to a 3rd-party code the precise set of methods to
+- Delegate to a 3rd-party code the precise set of functions to
   harmlessly operate on the part of your application
   *[Demo](https://asvd.github.io/jailed/demos/web/banner/)*
 
 - Safely execute user-submitted code
   *[Demo](https://asvd.github.io/jailed/demos/web/console/)*
 
-- Export the particular set of functions (in both directions) and call
-  them from the opposite site (without a need for manual messaging)
-  thus building any custom API and set of permissions.
+- Export the particular set of functions in both directions, and
+  invoke those at the opposite site (without a need for manual
+  messaging) thus building any custom API and set of permissions.
 
 
 For instance:
@@ -66,8 +65,8 @@ var plugin = new jailed.Plugin(path, api);
 *plugin.js:*
 
 ```js
-// runs in a worker, cannot access the main application, with except
-// for the explicitly exported alert() method
+// runs in a sandboxed worker, cannot access the main application,
+// with except for the explicitly exported alert() method
 
 // exported methods are stored in the application.remote object
 application.remote.alert('Hello from the plugin!');
@@ -84,7 +83,7 @@ the wrapper method is called, arguments are serialized, and the
 corresponding message is sent, which leads to the actual function
 invocation on the other site. If the executed function then issues a
 callback, the responce message will be sent back and handled by the
-opposite site, which will in turn execute the actual callback
+opposite site, which will, in turn, execute the actual callback
 previously stored upon the initial wrapper method invocation. A
 callback is in fact a short-term exported function and behaves in the
 same way, particularly it may invoke a newer callback in reply.
@@ -92,48 +91,47 @@ same way, particularly it may invoke a newer callback in reply.
 
 ### Security
 
-##### For Node.js the Jailed library does the following:
+This is how the sandbox is built:
 
-- creates a subprocess (launches the
-[_pluginNode.js](https://github.com/asvd/jailed/blob/master/lib/_pluginNode.js)
-script in that process);
+##### In Node.js:
 
-- (down)loads the file containing an untrusted code as a string (or
-  simply takes the string containing the code, in case of
-  `DynamicPlugin`);
+- Jailed creates a subprocess;
 
-- appends `"use strict";` to the head of that code (in order to
-  prevent breaking the sandbox using `arguments.callee.caller`);
+- the subprocess (down)loads the file containing an untrusted code as
+  a string (or, in case of `DynamicPlugin`, uses a string containing
+  the code)
 
-- finally executes the code using `vm.runInNewContext()` method, where
-  the provided sandbox only exposes some basic methods like
+- then `"use strict";` is appended to the head of that code (in order
+  to prevent breaking the sandbox using `arguments.callee.caller`);
+
+- finally the code is executed using `vm.runInNewContext()` method,
+  where the provided sandbox only exposes some basic methods like
   `setTimeout()`, and the `application` object for messaging with the
   application site.
 
 
-##### In web-browser Jailed launches the plugin in the following way:
+##### In a web-browser:
 
-- creates a [sandboxed
-iframe](http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/),
-where the sandbox attribute is only set to `"allow-scripts"` which
-prevents the framed content from accessing anything of the main
-application origin;
+- a [sandboxed
+iframe](http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/)
+is created with its `sandbox` attribute only set to `"allow-scripts"`
+(to prevent the content of the frame from accessing anything of the
+main application origin);
 
-- then a Web-Worker is created inside that farme;
+- then a web-worker is started inside that frame;
 
-- finally the code string / script filename is transfered as a message
-  into the worker in order to execute the code inside it
+- finaly the code is loaded by the worker and executed.
 
-*Note: when loading the Jailed library from the local file in a
- web-browser (so that its path starts with `file://`), the
- `"allow-same-origin"` permission is added for the iframe sandbox
- attribute. Local installations are mostly used for testing, and
- without that permission it would not be possible to load the plugin
- code from a local file. On the other hand that means that the code
- jailed in a plugin has an access to the local filesystem, and to some
- origin-shared things, like IndexedDB (though it is still jailed
- within a Worker and cannot access the main application page). If you
- need to safely use Jailed on a local machine, run it using Node.js.*
+*Note: when Jailed library is loaded from the local source (its path
+ starts with `file://`), the the `"allow-same-origin"` permission is
+ added to the `sandbox` attribute of the iframe. Local installations
+ are mostly used for testing, and without that permission it would not
+ be possible to load the plugin code from a local file. This means
+ that the code has access to the local filesystem, and to some
+ origin-shared things like IndexedDB (though the main application page
+ is still not accessible from the worker). Therefore if you need to
+ safely execute untrusted code on a local system, reuse the Jailed
+ library in Node.js.*
 
 
 
@@ -194,6 +192,21 @@ straightforward):
 - Returned value of an exported function is ignored, result should be
   provided to a callback instead.
 
+
+*In Node.js the
+ [send()](http://nodejs.org/api/child_process.html#child_process_child_send_message_sendhandle)
+ of a child process is used for transfering messages. That method
+ serializes an object into a JSON-string. In a web-browser
+ environment, the
+ [postMessage()](https://developer.mozilla.org/en-US/docs/Web/API/Window.postMessage)
+ method is used for messaging, which implements [the structured clone
+ algorithm](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/The_structured_clone_algorithm)
+ for serialization. This way is more permissive comparing to JSON in
+ sence of what can be transfered within a message (for instance, that
+ means that in a web-browser you may send a RegExp object, which is
+ not possible with JSON-serialization used in Node.js). [More details
+ about structured clone algorithm compared to
+ JSON](https://developer.mozilla.org/en-US/docs/Web/Guide/API/DOM/The_structured_clone_algorithm).*
 
 A plugin object may be created either from a string containing a
 source code to be executed, or with a path to the script. To load a
