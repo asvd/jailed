@@ -98,7 +98,7 @@ This is how the sandbox is built:
 
 ##### In Node.js:
 
-- Jailed creates a subprocess;
+- A Node.js subprocess is created by the Jailed library;
 
 - the subprocess (down)loads the file containing an untrusted code as
   a string (or, in case of `DynamicPlugin`, uses a string containing
