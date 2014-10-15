@@ -141,9 +141,9 @@ main application origin);
 ### Installation
 
 For the web-browser environment — download the
-[distribution](https://github.com/asvd/jailed/releases/download/v0.2.0/jailed-0.2.0.tar.gz)
-*8 kb*, unpack it and load the `jailed.js` in a preferrable way. That
-is an UMD module, thus for instance it may simply be loaded as a plain
+[distribution](https://github.com/asvd/jailed/releases/download/v0.2.0/jailed-0.2.0.tar.gz),
+unpack it and load the `jailed.js` in a preferrable way. That is an
+UMD module, thus for instance it may simply be loaded as a plain
 JavaScript file using the `<script>` tag:
 
 ```html
@@ -163,8 +163,7 @@ var jailed = require('jailed');
 ```
 
 Optionally you may load the script from the
-[distribution](https://github.com/asvd/jailed/releases/download/v0.2.0/jailed-0.2.0.tar.gz)
-*8 kb*:
+[distribution](https://github.com/asvd/jailed/releases/download/v0.2.0/jailed-0.2.0.tar.gz):
 
 ```js
 var jailed = require('path/to/jailed.js');
