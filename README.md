@@ -20,7 +20,7 @@ The code is executed as a *plugin*, a special instance running in a
 Web-Worker inside a sandboxed frame (in case of web-browser
 environment), or as a restricted subprocess (in Node.js).
 
-You may use Jailed to:
+You can use Jailed to:
 
 - Setup a safe environment for executing untrusted code, without a
   need to create a sandboxed worker / subprocess manually;
