@@ -20,13 +20,13 @@
           advertising banner managed by a "3rd party code" loaded as a
           secure Plugin created with
           the <a href="https://github.com/asvd/jailed">Jailed</a>
-          library. The Plugin runs in a Worker and cannot access the
-          main document, with except for the two methods explicitily
-          exported by the application: for changing the url the banner
-          is pointing to, and for changing the banner image. Even if
-          the Plugin performs an attempt to set too big image, it will
-          be cropped by the application. The Plugin Worker is fully
-          controlled by the application and may be connected or
+          library. The Plugin runs in a sandboxed Worker and cannot
+          access the main document, with except for the two methods
+          explicitily exported by the application: for changing the
+          url the banner is pointing to, and for changing the banner
+          image. Even if the Plugin performs an attempt to set too big
+          image, it will be cropped by the application. The Plugin is
+          fully controlled by the application and may be connected or
           disconnected anytime (operated with the two buttons in this
           demo).
         </div>

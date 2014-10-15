@@ -28,14 +28,13 @@
 
           User-submitted code is evaluated in a&nbsp;Plugin created
           with the <a href="https://github.com/asvd/jailed">Jailed</a>
-          library. The code is sandboxed within a Worker scope in
-          order to prevent accessing the main application. The Worker
-          is executed in a separate thread and does not slowdown the
-          application in case of heavy loads. Too long evaluation
-          times and infinite loops are prevented with a timeout. To
-          reproduce, execute something
-          like <span class=code>while(true);</span> and see what
-          happens.
+          library. The code is executed in a sandboxed worker in order
+          to prevent accessing the main application. The worker runs
+          in a separate thread and does not slowdown the application
+          in case of heavy loads. Too long evaluation times and
+          infinite loops are prevented with a timeout. To reproduce,
+          execute something like <span class=code>while(true);</span>
+          and see what happens.
         </div>
 
         <div class=links>
