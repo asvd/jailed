@@ -92,52 +92,6 @@ callback is in fact a short-term exported function and behaves in the
 same way, particularly it may invoke a newer callback in reply.
 
 
-### Security
-
-This is how the sandbox is built:
-
-##### In Node.js:
-
-- A Node.js subprocess is created by the Jailed library;
-
-- the subprocess (down)loads the file containing an untrusted code as
-  a string (or, in case of `DynamicPlugin`, simply uses the provided
-  string with code)
-
-- then `"use strict";` is appended to the head of that code (in order
-  to prevent breaking the sandbox using `arguments.callee.caller`);
-
-- finally the code is executed using `vm.runInNewContext()` method,
-  where the provided sandbox only exposes some basic methods like
-  `setTimeout()`, and the `application` object for messaging with the
-  application site.
-
-
-##### In a web-browser:
-
-- a [sandboxed
-iframe](http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/)
-is created with its `sandbox` attribute only set to `"allow-scripts"`
-(to prevent the content of the frame from accessing anything of the
-main application origin);
-
-- then a web-worker is started inside that frame;
-
-- finaly the code is loaded by the worker and executed.
-
-*Note: when Jailed library is loaded from the local source (its path
- starts with `file://`), the `"allow-same-origin"` permission is added
- to the `sandbox` attribute of the iframe. Local installations are
- mostly used for testing, and without that permission it would not be
- possible to load the plugin code from a local file. This means that
- the plugin code has an access to the local filesystem, and to some
- origin-shared things like IndexedDB (though the main application page
- is still not accessible from the worker). Therefore if you need to
- safely execute untrusted code on a local system, reuse the Jailed
- library in Node.js.*
-
-
-
 ### Installation
 
 For the web-browser environment — download the
@@ -361,5 +315,50 @@ provides similar `whenFailed()` and `whenDisconnected()` methods:
 
 Just like as for `whenConnected()` method, those two methods may also
 be used several times or even after the event has actually been fired.
+
+
+### Security
+
+This is how the sandbox is built:
+
+##### In Node.js:
+
+- A Node.js subprocess is created by the Jailed library;
+
+- the subprocess (down)loads the file containing an untrusted code as
+  a string (or, in case of `DynamicPlugin`, simply uses the provided
+  string with code)
+
+- then `"use strict";` is appended to the head of that code (in order
+  to prevent breaking the sandbox using `arguments.callee.caller`);
+
+- finally the code is executed using `vm.runInNewContext()` method,
+  where the provided sandbox only exposes some basic methods like
+  `setTimeout()`, and the `application` object for messaging with the
+  application site.
+
+
+##### In a web-browser:
+
+- a [sandboxed
+iframe](http://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/)
+is created with its `sandbox` attribute only set to `"allow-scripts"`
+(to prevent the content of the frame from accessing anything of the
+main application origin);
+
+- then a web-worker is started inside that frame;
+
+- finaly the code is loaded by the worker and executed.
+
+*Note: when Jailed library is loaded from the local source (its path
+ starts with `file://`), the `"allow-same-origin"` permission is added
+ to the `sandbox` attribute of the iframe. Local installations are
+ mostly used for testing, and without that permission it would not be
+ possible to load the plugin code from a local file. This means that
+ the plugin code has an access to the local filesystem, and to some
+ origin-shared things like IndexedDB (though the main application page
+ is still not accessible from the worker). Therefore if you need to
+ safely execute untrusted code on a local system, reuse the Jailed
+ library in Node.js.*
 
 
