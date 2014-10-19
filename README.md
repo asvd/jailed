@@ -1,5 +1,5 @@
-Jailed — sandbox with simple communication
-==========================================
+Jailed — flexible JS sandbox
+============================
 
 Jailed is a small JavaScript library for running untrusted code in a
 sandbox.
