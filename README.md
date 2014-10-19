@@ -1,20 +1,19 @@
-Jailed — safe yet flexible sandbox
-==================================
+Jailed — sandbox with simple communication
+==========================================
 
 Jailed is a small JavaScript library for running untrusted code in a
 sandbox.
 
-
 With Jailed you can:
 
-- Load an untrusted code into a secure sandbox, so the code cannot
-  break down the main application;
+- Load an untrusted code into a secure sandbox;
 
-- Export the precise set of functions into the sandbox, so that the
-  code may perform certain actions to the main application simply by
-  calling those functions (without a need for messaging), but strictly
-  within the set of privilliges explicitly defined by what was
-  exported.
+- Export a set of external functions into the sandbox.
+
+The untrusted code may then interract with the main application by
+directly calling those functions, but the application owner decides
+which functions to export, and therefore what will be allowed for the
+untrusted code to perform.
 
 The code is executed as a *plugin*, a special instance running in a
 Web-Worker inside a sandboxed frame (in case of web-browser
