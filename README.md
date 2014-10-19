@@ -44,9 +44,10 @@ You can use Jailed to:
 - Safely execute user-submitted code
   *[Demo](https://asvd.github.io/jailed/demos/web/console/)*
 
-- Export the particular set of functions in both directions, and
-  invoke those at the opposite site (without a need for manual
-  messaging) thus building any custom API and set of permissions.
+- Export the particular set of application functions into the sandbox
+  (or in the opposite direction), and let those functions be invoked
+  from the other site (without a need for manual messaging) thus
+  building any custom API and set of permissions.
 
 
 For instance:
