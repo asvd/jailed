@@ -16,7 +16,7 @@ which functions to export, and therefore what will be allowed for the
 untrusted code to perform.
 
 The code is executed as a *plugin*, a special instance running in a
-Web-Worker inside a sandboxed frame (in case of web-browser
+web-worker inside a sandboxed frame (in case of web-browser
 environment), or as a restricted subprocess (in Node.js).
 
 You can use Jailed to:
