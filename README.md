@@ -35,14 +35,14 @@ You can use Jailed to:
   times;
 
 - Perform heavy calculations in a separate thread
-  *[Demo](https://asvd.github.io/jailed/demos/web/circle/)*
+  *[Demo](http://asvd.github.io/jailed/demos/web/circle/)*
 
 - Delegate to a 3rd-party code the precise set of functions to
   harmlessly operate on the part of your application
-  *[Demo](https://asvd.github.io/jailed/demos/web/banner/)*
+  *[Demo](http://asvd.github.io/jailed/demos/web/banner/)*
 
 - Safely execute user-submitted code
-  *[Demo](https://asvd.github.io/jailed/demos/web/console/)*
+  *[Demo](http://asvd.github.io/jailed/demos/web/console/)*
 
 - Export the particular set of application functions into the sandbox
   (or in the opposite direction), and let those functions be invoked
