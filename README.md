@@ -94,11 +94,16 @@ same way, particularly it may invoke a newer callback in reply.
 
 ### Installation
 
-For the web-browser environment — download the
-[distribution](https://github.com/asvd/jailed/releases/download/v0.2.0/jailed-0.2.0.tar.gz),
-unpack it and load the `jailed.js` in a preferrable way. That is an
-UMD module, thus for instance it may simply be loaded as a plain
-JavaScript file using the `<script>` tag:
+For the web-browser environment — download and unpack the
+[distribution](https://github.com/asvd/jailed/releases/download/v0.2.0/jailed-0.2.0.tar.gz), or install it using [Bower](http://bower.io/):
+
+```sh
+$ bower install jailed
+```
+
+Load the `jailed.js` in a preferrable way. That is an UMD module, thus
+for instance it may simply be loaded as a plain JavaScript file using
+the `<script>` tag:
 
 ```html
 <script src="jailed/jailed.js"></script>
