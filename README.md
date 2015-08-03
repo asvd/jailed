@@ -353,7 +353,7 @@ main application origin);
 
 - then a web-worker is started inside that frame;
 
-- finaly the code is loaded by the worker and executed.
+- finally the code is loaded by the worker and executed.
 
 *Note: when Jailed library is loaded from the local source (its path
  starts with `file://`), the `"allow-same-origin"` permission is added
