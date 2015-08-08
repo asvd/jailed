@@ -278,7 +278,7 @@ Therefore:
 
 - If you need to load a plugin and supply it with a set of exported
   functions, simply provide those functions into the plugin
-  constructor, and then access those at `applictaion.remote` property
+  constructor, and then access those at `application.remote` property
   on the plugin site — the exported functions are already prepared
   when the plugin code is exectued.
 
