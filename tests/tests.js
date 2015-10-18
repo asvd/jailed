@@ -730,7 +730,6 @@ var tests = {
     },
                     
                     
-}; var skipped = {
 
 
     'Broken plugin':
@@ -758,6 +757,7 @@ var tests = {
             )
         );
     },
+
 
 
     'Broken dynamic plugin':
