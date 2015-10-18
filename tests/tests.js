@@ -620,18 +620,24 @@ var tests = {
             function() {
                 lighttest.check(true);
 
-                var cb = lighttest.protect(
-                    function() {
-                        // should never be called
-                        lighttest.check(false);
-                        pluginBad.disconnect();
-                        lighttest.done();
-                    }
-                );
+                if (pluginBad.hasDedicatedThread()) {
+                    var cb = lighttest.protect(
+                        function() {
+                            // should never be called
+                            lighttest.check(false);
+                            pluginBad.disconnect();
+                            lighttest.done();
+                        }
+                    );
 
-                pluginBad.remote.infinite(cb);
+                    pluginBad.remote.infinite(cb);
 
-                setTimeout(step2, 2000);
+                    setTimeout(step2, 2000);
+                } else {
+                    // thread not obtained because of the browser
+                    pluginBad.disconnect();
+                    lighttest.done();
+                }
             }
         );
 
@@ -723,8 +729,9 @@ var tests = {
         plugin.whenFailed(whenFailed);
     },
                     
-
                     
+}; var skipped = {
+
 
     'Broken plugin':
     function() {
@@ -934,7 +941,6 @@ var tests = {
         plugin.whenFailed(fail);
     },
 
-    
     
     'Broken plugin method':
     function() {
