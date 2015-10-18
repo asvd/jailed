@@ -585,7 +585,7 @@ var tests = {
     
     'Remote plugin':
     function() {
-        var path = 'http://asvd.github.io/jailed/tests/plugin14.js';
+        var path = 'https://asvd.github.io/jailed/tests/plugin14.js';
 
         var api = {
             square: lighttest.protect(function(val, cb) {
