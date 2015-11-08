@@ -1575,7 +1575,7 @@ var tests = {
                 );
 
                 setTimeout(tryConnect, 300);
-                setTimeout(connectCheck, 2000);
+                setTimeout(connectCheck, 3000);
             }
         );
 
@@ -1644,7 +1644,7 @@ var tests = {
         stage1();
     },
 
-    
+
 
     'Delayed event subscription in the plugin':
     function() {
