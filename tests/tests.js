@@ -65,7 +65,7 @@ var tests = {
     },
 
                     
-    'Applictaion API':
+    'Application API':
     function() {
         var api = {
             square : lighttest.protect(function(val, cb) {
