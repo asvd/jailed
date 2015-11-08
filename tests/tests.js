@@ -1546,7 +1546,7 @@ var tests = {
         plugin.whenDisconnected(disconnect);
     },
     
-    
+
 
     'Delayed event subscription in the application':
     function() {
@@ -1555,14 +1555,6 @@ var tests = {
                 var plugin = new jailed.DynamicPlugin('');
 
                 var connectionCompleted = false;
-
-                var connectCheck = lighttest.protect(
-                    function() {
-                        plugin.disconnect();
-                        lighttest.check(connectionCompleted);
-                        setTimeout(stage2, 300);
-                    }
-                );
 
                 var tryConnect = lighttest.protect(
                     function() {
@@ -1574,8 +1566,16 @@ var tests = {
                     connectionCompleted = true;
                 }
 
+                var connectCheck = lighttest.protect(
+                    function() {
+                        plugin.disconnect();
+                        lighttest.check(connectionCompleted);
+                        setTimeout(stage2, 300);
+                    }
+                );
+
                 setTimeout(tryConnect, 300);
-                setTimeout(connectCheck, 600);
+                setTimeout(connectCheck, 2000);
             }
         );
 
@@ -1585,14 +1585,6 @@ var tests = {
                 var plugin = new jailed.DynamicPlugin('uau}');
 
                 var failureCompleted = false;
-
-                var failureCheck = lighttest.protect(
-                    function() {
-                        plugin.disconnect();
-                        lighttest.check(failureCompleted);
-                        setTimeout(stage3, 300);
-                    }
-                );
 
                 var tryFailure = lighttest.protect(
                     function() {
@@ -1604,8 +1596,16 @@ var tests = {
                     failureCompleted = true;
                 }
 
+                var failureCheck = lighttest.protect(
+                    function() {
+                        plugin.disconnect();
+                        lighttest.check(failureCompleted);
+                        setTimeout(stage3, 300);
+                    }
+                );
+
                 setTimeout(tryFailure, 300);
-                setTimeout(failureCheck, 600);
+                setTimeout(failureCheck, 3600);
             }
         );
 
@@ -1617,14 +1617,6 @@ var tests = {
 
                 var disconnectCompleted = false;
 
-                var disconnectCheck = lighttest.protect(
-                    function() {
-                        plugin.disconnect();
-                        lighttest.check(disconnectCompleted);
-                        lighttest.done();
-                    }
-                );
-
                 var tryDisconnect = lighttest.protect(
                     function() {
                         plugin.whenDisconnected(disconnected);
@@ -1635,8 +1627,16 @@ var tests = {
                     disconnectCompleted = true;
                 }
 
+                var disconnectCheck = lighttest.protect(
+                    function() {
+                        plugin.disconnect();
+                        lighttest.check(disconnectCompleted);
+                        lighttest.done();
+                    }
+                );
+
                 setTimeout(tryDisconnect, 300);
-                setTimeout(disconnectCheck, 600);
+                setTimeout(disconnectCheck, 5000);
             }
         );
 
@@ -1645,6 +1645,7 @@ var tests = {
     },
 
     
+
     'Delayed event subscription in the plugin':
     function() {
         var api = {
