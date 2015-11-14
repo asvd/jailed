@@ -900,7 +900,7 @@ var tests = {
 
     'Nonexisting remote plugin':
     function() {
-        var path = 'http://asvd.github.io/no_such_path.js';
+        var path = 'https://asvd.github.io/no_such_path.js';
         var plugin = new jailed.Plugin(path);
 
         var connect = lighttest.protect(
