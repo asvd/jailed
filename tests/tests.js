@@ -809,7 +809,7 @@ var tests = {
 
     'Broken remote plugin':
     function() {
-        var path = 'http://asvd.github.io/jailed/tests/plugin18.js';
+        var path = 'https://asvd.github.io/jailed/tests/plugin18.js';
 
         var plugin = new jailed.Plugin(path);
 
