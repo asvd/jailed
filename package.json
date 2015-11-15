@@ -1,0 +1,34 @@
+{
+  "author": "Dmitry Prokashev <heliosframework@gmail.com>",
+  "name": "jailed",
+  "description": "execute untrusted code with custom permissions",
+  "version": "0.2.0",
+  "keywords": [
+    "jailed",
+    "isomorphic",
+    "sandbox",
+    "export",
+    "eval",
+    "plugin",
+    "untrusted",
+    "restricted",
+    "privilliges",
+    "access",
+    "security",
+    "thread",
+    "worker",
+    "process",
+    "messaging"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/asvd/jailed.git"
+  },
+  "main": "jailed.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}
