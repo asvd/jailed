@@ -24,7 +24,7 @@
     "type": "git",
     "url": "git://github.com/asvd/jailed.git"
   },
-  "main": "jailed.js",
+  "main": "lib/jailed.js",
   "dependencies": {},
   "devDependencies": {},
   "optionalDependencies": {},
