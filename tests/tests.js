@@ -306,7 +306,6 @@ var tests = {
                     
                     
 
-
     'Two plugins with the same source but different interface':
     function() {
         var path = currentPath + 'stage10/plugin10.js';
@@ -971,7 +970,7 @@ var tests = {
                             lighttest.done();
                         }
                     ),
-                    1000
+                    2000
                 );
 
                 var cb = lighttest.protect(
@@ -1016,6 +1015,7 @@ var tests = {
                 plugin.remote.square(val, cb);
             }
         );
+
 
         var path = currentPath + 'stage19/plugin19.js';
         var plugin = new jailed.Plugin(path);
@@ -1559,6 +1559,7 @@ var tests = {
                 var tryConnect = lighttest.protect(
                     function() {
                         plugin.whenConnected(connected);
+                        setTimeout(connectCheck, 4000);
                     }
                 );
 
@@ -1575,7 +1576,6 @@ var tests = {
                 );
 
                 setTimeout(tryConnect, 300);
-                setTimeout(connectCheck, 3000);
             }
         );
 
@@ -1589,6 +1589,7 @@ var tests = {
                 var tryFailure = lighttest.protect(
                     function() {
                         plugin.whenFailed(failed);
+                        setTimeout(failureCheck, 3000);
                     }
                 );
 
@@ -1605,7 +1606,6 @@ var tests = {
                 );
 
                 setTimeout(tryFailure, 300);
-                setTimeout(failureCheck, 3600);
             }
         );
 
@@ -1643,6 +1643,7 @@ var tests = {
 
         stage1();
     },
+
 
 
 
@@ -1824,6 +1825,7 @@ var tests = {
     
 };
 
-
+    
 lighttest.start(tests);
+
 
