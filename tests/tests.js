@@ -1589,7 +1589,7 @@ var tests = {
                 var tryFailure = lighttest.protect(
                     function() {
                         plugin.whenFailed(failed);
-                        setTimeout(failureCheck, 3000);
+                        setTimeout(failureCheck, 3500);
                     }
                 );
 
