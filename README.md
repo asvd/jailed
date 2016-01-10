@@ -31,13 +31,13 @@ You can use Jailed to:
 
 - Initiate and interrupt the execution anytime;
 
+- *[Demo](http://asvd.github.io/jailed/demos/web/console/)* Safely
+   execute user-submitted code
+
 - *[Demo](http://asvd.github.io/jailed/demos/web/banner/)* Delegate to
   a 3rd-party code the precise set of functions to harmlessly operate
   on the part of your application
   
-- *[Demo](http://asvd.github.io/jailed/demos/web/console/)* Safely
-   execute user-submitted code
-
 - Export the particular set of application functions into the sandbox
   (or in the opposite direction), and let those functions be invoked
   from the other site (without a need for manual messaging) thus
