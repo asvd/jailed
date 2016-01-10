@@ -31,9 +31,6 @@ You can use Jailed to:
 
 - Initiate and interrupt the execution anytime;
 
-- Control the execution against a hangup or too long calculation
-  times;
-
 - Delegate to a 3rd-party code the precise set of functions to
   harmlessly operate on the part of your application
   *[Demo](http://asvd.github.io/jailed/demos/web/banner/)*
