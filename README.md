@@ -34,9 +34,6 @@ You can use Jailed to:
 - Control the execution against a hangup or too long calculation
   times;
 
-- Perform heavy calculations in a separate thread
-  *[Demo](http://asvd.github.io/jailed/demos/web/circle/)*
-
 - Delegate to a 3rd-party code the precise set of functions to
   harmlessly operate on the part of your application
   *[Demo](http://asvd.github.io/jailed/demos/web/banner/)*
