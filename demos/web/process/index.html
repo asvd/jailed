@@ -1,0 +1,58 @@
+ <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Data processing demo</title>
+    <script type="text/javascript" src="../../../lib/jailed.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="intence.js"></script>
+  </head>
+  <body>
+    <div class=centered>
+      <div class=rel>
+        <div class=main>
+          <div class=input_block>
+            <div class=label>Input:</div>
+            <div class=data id=input_data></div>
+            <div class=button id=button_regen_input></div>
+          </div>
+
+          <div class=code_block>
+            <div class=label>Processing code:</div>
+            <div class="code intence" id=code contenteditable=true scrollImg=scroll.png></div>
+          </div>
+
+          <div class=process_block>
+            <div class=button id=button_process>Process</div>
+          </div>
+
+          <div class=output_block>
+            <div class=label>Output:</div>
+            <div class=data id=output_data></div>
+          </div>
+        </div>
+
+        <div class=annotation>
+          <h3>data processing</h3>
+
+          User-submitted code for processing the&nbsp;input data
+          (shipped by the application) is evaluated in a&nbsp;Plugin
+          created with
+          the <a href="https://github.com/asvd/jailed">Jailed</a>
+          library. The code is executed in a sandboxed iframe in order
+          to prevent accessing the main application.
+        </div>
+
+        <div class=links>
+          <a href='https://github.com/asvd/jailed/tree/master/demos/web/process'>
+            http://github.com/asvd/jailed/tree/master/demos/web/process
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <script type="text/javascript" src="application.js"></script>
+  </body>
+</html>
+
+

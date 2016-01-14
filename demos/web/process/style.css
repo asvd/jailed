@@ -1,0 +1,175 @@
+
+body {
+    background-color: #112233;
+    color: #aabbcc;
+    font-family: sans;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: default;
+}
+
+
+a {
+    color: #48D7E9;
+    text-shadow: 0px 0px 3px #133153;
+}
+
+a:hover {
+    color: #72EDFD;
+    text-shadow: 0px 0px 8px #3F638B;
+}
+
+.rel {
+    position: relative;
+    padding: 0px;
+}
+
+.centered {
+    display: block;
+    width: 900px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0px;
+}
+
+.links {
+    position: absolute;
+    width: 900;
+    height: 50px;
+    top: 350;
+    left: 20px;
+    text-align: center;
+    font-size: 11px;
+}
+
+
+.annotation {
+    position: absolute;
+    left: 545px;
+    top: 25px;
+    width: 200px;
+    height: 400px;
+}
+
+.annotation h3 {
+    font-variant: small-caps;
+}
+
+.label {
+    font-variant: small-caps;
+    text-align: right;
+    width: 150px;
+}
+
+
+.main {
+    position: absolute;
+    left: 0;
+    top: 25px;
+    width : 500px;
+    height : 400px;
+}
+
+
+.input_block {
+    position:relative;
+    width: 500px;
+    height : 30px;
+}
+
+.code_block {
+    position:relative;
+    width: 500px;
+    height : 200px;
+}
+
+.process_block {
+    position:relative;
+    width: 500px;
+    height : 30px;
+}
+
+.output_block {
+    position:relative;
+    width: 500px;
+    height : 30px;
+}
+
+
+.code {
+    position: absolute;
+    top: 0px;
+    left: 160px;
+    height: 200px;
+    width: 360px;
+    background-color: #051627;
+    background-image: url('bg.png');
+    border: 1px solid #334455;
+    color: #aabbcc;
+    font-family: monospace;
+    font-size: 12px;
+    line-height: 18px;
+    overflow: auto;
+    white-space: pre;
+    -moz-appearance:none;
+    outline:0px none transparent;
+}
+
+.code:focus {
+    outline: 0;
+}
+
+.data {
+    position: absolute;
+    height: 22px;
+    top: 0px;
+    left: 160px;
+    background-color: #051627;
+    background-image: url('bg.png');
+    border: 1px solid #334455;
+    color: #aabbcc;
+    font-family: monospace;
+}
+
+#input_data {
+    width: 330px;
+}
+
+#output_data {
+    width: 360px;
+}
+
+.button {
+    border: 1px solid #334455;
+    background-color: #051627;
+    font-variant: small-caps;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #152637;
+}
+
+.button:active {
+    background-color: #051627;
+}
+
+#button_regen_input {
+    position: absolute;
+    top: 0px;
+    left: 500px;
+    width : 22px;
+    height: 22px;
+    background-image: url('refresh.svg');
+    background-repeat:none;
+}
+
+#button_process {
+    position: absolute;
+    top: 5px;
+    left: 300px;
+    width : 130px;
+    height: 22px;
+}
+
