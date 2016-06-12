@@ -15,12 +15,11 @@ directly calling those functions, but the application owner decides
 which functions to export, and therefore what will be allowed for the
 untrusted code to perform.
 
-The code is executed as a *plugin*, a special instance running in a
-web-worker inside a sandboxed frame (in case of web-browser
-environment), or as a restricted subprocess (in Node.js).
-
-In a web-browser environment the sandbox is created in a local iframe,
-so that you don't need to host it on a separate (sub)domain.
+The code is executed as a *plugin*, a special instance running as a
+restricted subprocess (in Node.js), or in a web-worker inside a
+sandboxed frame (in case of web-browser environment). The iframe is
+created locally, so that you don't need to host it on a separate
+(sub)domain.
 
 
 You can use Jailed to:
