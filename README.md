@@ -2,7 +2,8 @@ Jailed — flexible JS sandbox
 ============================
 
 Jailed is a small JavaScript library for running untrusted code in a
-sandbox.
+sandbox, without a need of creating an iframe located on a separate
+(sub)domain.
 
 With Jailed you can:
 
