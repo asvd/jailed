@@ -2,7 +2,7 @@
   "author": "Dmitry Prokashev <heliosframework@gmail.com>",
   "name": "jailed",
   "description": "execute untrusted code with custom permissions",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "keywords": [
     "jailed",
     "isomorphic",
