@@ -19,6 +19,10 @@ a:hover {
     text-shadow: 0px 0px 8px #3F638B;
 }
 
+.hpad {
+    height : 15px;
+}
+
 .rel {
     position: relative;
     padding: 0px;
@@ -33,17 +37,6 @@ a:hover {
     padding: 0px;
 }
 
-.links {
-    position: absolute;
-    width: 900;
-    height: 50px;
-    top: 350;
-    left: 20px;
-    text-align: center;
-    font-size: 11px;
-}
-
-
 .annotation {
     position: absolute;
     left: 545px;
@@ -53,6 +46,7 @@ a:hover {
 }
 
 .annotation h3 {
+    margin-top: 0px;
     font-variant: small-caps;
 }
 
@@ -62,12 +56,34 @@ a:hover {
     width: 150px;
 }
 
+.link_block {
+    position : relative;
+}
+
+.link_label {
+    font-variant: small-caps;
+    font-size : 12px;
+    text-align: right;
+    height : 20px;
+    width: 150px;
+}
+
+.link {
+    position:absolute;
+    width: 500px;
+    height : 20px;
+    top : 0px;
+    left: 160px;
+    font-size: 11px;
+}
+
 
 .main {
     position: absolute;
+    padding-top: 6px;
     left: 0;
     top: 25px;
-    width : 500px;
+    width : 550px;
     height : 400px;
 }
 
@@ -86,6 +102,8 @@ a:hover {
 
 .process_block {
     position:relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 500px;
     height : 30px;
 }
@@ -99,14 +117,15 @@ a:hover {
 
 .code {
     position: absolute;
+    padding: 5px;
     top: 0px;
     left: 160px;
     height: 200px;
     width: 360px;
     background-color: #051627;
     background-image: url('bg.png');
-    border: 1px solid #334455;
-    color: #aabbcc;
+    border: 1px solid #365666;
+    color: #B4EEF5;
     font-family: monospace;
     font-size: 12px;
     line-height: 18px;
@@ -114,6 +133,7 @@ a:hover {
     white-space: pre;
     -moz-appearance:none;
     outline:0px none transparent;
+    border : 1px solid #365666;
 }
 
 .code:focus {
@@ -125,11 +145,10 @@ a:hover {
     height: 22px;
     top: 0px;
     left: 160px;
-    background-color: #051627;
-    background-image: url('bg.png');
-    border: 1px solid #334455;
-    color: #aabbcc;
+    color: #B4EEF5;
     font-family: monospace;
+    background-color: #06192B;
+    padding-left: 5px;
 }
 
 #input_data {
@@ -141,18 +160,16 @@ a:hover {
 }
 
 .button {
-    border: 1px solid #334455;
-    background-color: #051627;
     font-variant: small-caps;
     text-align: center;
 }
 
 .button:hover {
-    background-color: #152637;
+    background-color: #172839 !important;
 }
 
 .button:active {
-    background-color: #051627;
+    background-color: #0B1C2E !important;
 }
 
 #button_regen_input {
@@ -162,14 +179,26 @@ a:hover {
     width : 22px;
     height: 22px;
     background-image: url('refresh.svg');
-    background-repeat:none;
+    background-repeat: no-repeat;
 }
 
 #button_process {
     position: absolute;
     top: 5px;
-    left: 300px;
+    left: 286px;
     width : 130px;
     height: 22px;
+    border : 1px solid #365666;
+    background-color: #06192B;
 }
+
+.error {
+    color : #E67C60;
+}
+
+.loading {
+    padding-top: 3px;
+    opacity: .7;
+}
+
 

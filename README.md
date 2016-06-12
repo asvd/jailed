@@ -316,6 +316,18 @@ Just like as for `whenConnected()` method, those two methods may also
 be used several times or even after the event has actually been fired.
 
 
+### Compatibility
+
+Jailed was tested and should work in Node.js, and in the following
+browsers:
+
+- Internet Explorer 10+, Edge
+- Firefox 26+
+- Opera 12+
+- Safari 6+
+- Chrome 10+
+
+
 ### Security
 
 This is how the sandbox is built:

@@ -31,16 +31,22 @@ function regen_input() {
     el.input_data.innerHTML = stringify(input);
 }
 
-
 // processes the input data using provided code
 function process() {
+    el.output_data.innerHTML = '<img class="loading" src="loading.gif"/>';
     var code = el.code.innerText;
     var input = el.input_data.innerText;
 
     var plugin =  new jailed.Plugin(path+'plugin.js');
     var process = function() {
         var displayResult = function(result) {
-            el.output_data.innerHTML = stringify(result);
+            if (result.error) {
+                el.output_data.innerHTML =
+                    '<span class="error">'+result.error + '</span>';
+            } else {
+                el.output_data.innerHTML = stringify(result.output);
+            }
+            plugin.disconnect();
         }
 
         plugin.remote.process(input, code, displayResult);
@@ -111,14 +117,24 @@ function fill_code() {
         '                                                  '
     ].join('\n'));
 
-    el.code.innerHTML = code;
+    el.code.container.innerHTML = code;
 }
 
 
+function init() {
+    el.button_regen_input.onclick = regen_input;
+    el.button_process.onclick = process;
+    fill_code();
+    regen_input();
 
-// initializes everything
-el.button_regen_input.onclick = regen_input;
-el.button_process.onclick = process;
-fill_code();
+    // caching
+    var plugin =  new jailed.Plugin(path+'plugin.js');
+    plugin.whenConnected(function(){plugin.disconnect();});
 
-regen_input();
+    el.code.container.focus();
+}
+
+window.addEventListener("load", init, false);
+
+
+
