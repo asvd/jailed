@@ -38,7 +38,8 @@ You can use Jailed to:
    execute user-submitted code;
 
 - *[Demo](http://asvd.github.io/jailed/demos/web/banner/)* Safely
-  embed 3rd-party code;
+  embed 3rd-party code and provide it the precise set of functions to
+  harmlessly operate on the part of your application;
   
 - Export the particular set of application functions into the sandbox
   (or in the opposite direction), and let those functions be invoked
