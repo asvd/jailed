@@ -34,11 +34,11 @@ You can use Jailed to:
 
 - Initiate and interrupt the execution anytime;
 
-- *[Demo](http://asvd.github.io/jailed/demos/web/console/)* Safely
+- *[Demo](http://asvd.github.io/jailed/demos/web/console/)* safely
    execute user-submitted code;
 
-- *[Demo](http://asvd.github.io/jailed/demos/web/banner/)* Safely
-  embed 3rd-party code and provide it the precise set of functions to
+- *[Demo](http://asvd.github.io/jailed/demos/web/banner/)* embed
+  3rd-party code and provide it the precise set of functions to
   harmlessly operate on the part of your application;
   
 - Export the particular set of application functions into the sandbox
