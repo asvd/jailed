@@ -33,10 +33,13 @@
      */
     lighttest._platform.init = function () {
         if (!lighttest._platform._initialized) {
-            if (typeof window != 'undefined') {
-                lighttest._platform._initWeb();
-            } else {
+            var __is__node__ = ((typeof process !== 'undefined') &&
+                                (!process.browser) &&
+                                (process.release.name.search(/node|io.js/) !== -1));
+            if (__is__node__) {
                 lighttest._platform._initNode();
+            } else {
+                lighttest._platform._initWeb();
             }
             lighttest._platform._initialized = true;
         }

@@ -1,4 +1,6 @@
-var isNode = typeof window == 'undefined';
+var __is__node__ = ((typeof process !== 'undefined') &&
+                    (!process.browser) &&
+                    (process.release.name.search(/node|io.js/) !== -1));
 var currentPath;
 
 var whenFailed = function(){
@@ -6,7 +8,7 @@ var whenFailed = function(){
     lighttest.done();
 }
 
-if (isNode) {
+if (__is__node__) {
     currentPath = __dirname + '/';
 } else {
     var scripts = document.getElementsByTagName('script');
