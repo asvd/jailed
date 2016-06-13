@@ -361,6 +361,10 @@ main application origin);
 
 ##### In Node.js:
 
+*Warning: according to recent reports
+ ([#33](https://github.com/asvd/jailed/issues/33)) this way of
+ sandboxing is not secure any longer, the fix is being prepared...*
+
 - A Node.js subprocess is created by the Jailed library;
 
 - the subprocess (down)loads the file containing an untrusted code as
@@ -374,10 +378,6 @@ main application origin);
   where the provided sandbox only exposes some basic methods like
   `setTimeout()`, and the `application` object for messaging with the
   application site.
-
-*Warning: according to recent reports
- ([#33](https://github.com/asvd/jailed/issues/33)) this way of
- sandboxing is not secure any longer, the fix is being prepared...*
 
 --
 
