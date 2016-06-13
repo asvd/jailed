@@ -92,7 +92,7 @@ same way, particularly it may invoke a newer callback in reply.
 ### Installation
 
 For the web-browser environment — download and unpack the
-[distribution](https://github.com/asvd/jailed/releases/download/v0.3.0/jailed-0.3.0.tar.gz), or install it using [Bower](http://bower.io/):
+[distribution](https://github.com/asvd/jailed/releases/download/v0.3.1/jailed-0.3.1.tar.gz), or install it using [Bower](http://bower.io/):
 
 ```sh
 $ bower install jailed
@@ -119,7 +119,7 @@ var jailed = require('jailed');
 ```
 
 Optionally you may load the script from the
-[distribution](https://github.com/asvd/jailed/releases/download/v0.3.0/jailed-0.3.0.tar.gz):
+[distribution](https://github.com/asvd/jailed/releases/download/v0.3.1/jailed-0.3.1.tar.gz):
 
 ```js
 var jailed = require('path/to/jailed.js');
