@@ -379,7 +379,7 @@ main application origin);
  ([#33](https://github.com/asvd/jailed/issues/33)) this way of
  sandboxing is not secure any longer, the fix is being prepared...*
 
-
+--
 
 follow me on twitter: https://twitter.com/asvd0
 
