@@ -335,23 +335,6 @@ browsers:
 
 This is how the sandbox is built:
 
-##### In Node.js:
-
-- A Node.js subprocess is created by the Jailed library;
-
-- the subprocess (down)loads the file containing an untrusted code as
-  a string (or, in case of `DynamicPlugin`, simply uses the provided
-  string with code)
-
-- then `"use strict";` is appended to the head of that code (in order
-  to prevent breaking the sandbox using `arguments.callee.caller`);
-
-- finally the code is executed using `vm.runInNewContext()` method,
-  where the provided sandbox only exposes some basic methods like
-  `setTimeout()`, and the `application` object for messaging with the
-  application site.
-
-
 ##### In a web-browser:
 
 - a [sandboxed
@@ -374,6 +357,27 @@ main application origin);
  is still not accessible from the worker). Therefore if you need to
  safely execute untrusted code on a local system, reuse the Jailed
  library in Node.js.*
+
+
+##### In Node.js:
+
+- A Node.js subprocess is created by the Jailed library;
+
+- the subprocess (down)loads the file containing an untrusted code as
+  a string (or, in case of `DynamicPlugin`, simply uses the provided
+  string with code)
+
+- then `"use strict";` is appended to the head of that code (in order
+  to prevent breaking the sandbox using `arguments.callee.caller`);
+
+- finally the code is executed using `vm.runInNewContext()` method,
+  where the provided sandbox only exposes some basic methods like
+  `setTimeout()`, and the `application` object for messaging with the
+  application site.
+
+*Warning: according to recent reports
+ ([#33](https://github.com/asvd/jailed/issues/33)) this way of
+ sandboxing is not secure any longer, the fix is being prepared...*
 
 
 
