@@ -377,7 +377,7 @@ main application origin);
 - finally the code is executed using `vm.runInNewContext()` method,
   where the provided sandbox only exposes some basic methods like
   `setTimeout()`, and the `application` object for messaging with the
-  application site.
+   application site.
 
 --
 
