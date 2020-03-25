@@ -30,7 +30,9 @@
       "child_process": false
     },
   "main": "lib/jailed.js",
-  "dependencies": {},
+  "dependencies": {
+      "harmony-reflect": ">=1.4.6"
+  },
   "devDependencies": {},
   "optionalDependencies": {},
   "engines": {
